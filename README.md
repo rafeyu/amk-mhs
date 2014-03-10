@@ -7,11 +7,12 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 ### Instalasi di Linux
 1. Install Ruby (biasanya di Linux, software Ruby sudah ada)
 
-`sudo apt-get install ruby`
+    `sudo apt-get install ruby`
 
 2. Download `amk-mhs` dengan `wget`
 
-`wget https://github.com/rafeyu/amk-mhs/archive/master.zip`
+    `wget https://github.com/rafeyu/amk-mhs/archive/master.zip`
+
 
 Extract file master.zip, kemudian setting `chmod` nya
 
@@ -19,5 +20,6 @@ Extract file master.zip, kemudian setting `chmod` nya
 
 ### Contoh penggunaan
 `./amk-mhs -f 11.12.5369`
+
 
 Matur nuwun
