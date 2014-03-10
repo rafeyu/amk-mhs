@@ -31,7 +31,7 @@ options = {}
 op = OptionParser.new do |opts|
 	opts.banner = "Penggunaan: amk-mhs [OPTION] nim"
 	opts.on("-v","--version","Tampilkan versi") do 
-		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v1.0\n(amk-mhs)\n(c) 2014 - Ramdziana F Y"
+		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v1.0\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
 		exit
 	end
 	opts.on("-h","--help","Tampilkan halaman ini") do |h|
