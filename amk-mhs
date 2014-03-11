@@ -22,6 +22,8 @@
 # THE SOFTWARE.
 
 require "rubygems"
+require "bundler/setup"
+
 require "uri"
 require "net/http"
 require "nokogiri"
