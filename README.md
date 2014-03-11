@@ -18,6 +18,10 @@ Extract file master.zip, kemudian setting `chmod` nya
 
 `chmod +x amk-mhs`
 
+Setelah itu, jalankan perintah:
+
+`gem install bundler && bundle install`
+
 ### Instalasi di Windows
 Download file yang ada di [http://ramdziana.my.id/file/amk-mhs.exe](http://ramdziana.my.id/file/amk-mhs.exe) atau di [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe), kemudian jalankan dengan command prompt.
 
