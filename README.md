@@ -9,7 +9,7 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     `sudo apt-get install ruby`
 
-2. Download `amk-mhs` dengan `wget`
+2. Download `amk-mhs` dengan `wget`, atau klik tombol **Download ZIP** di kanan halaman ini.
 
     `wget https://github.com/rafeyu/amk-mhs/archive/master.zip`
 
@@ -26,7 +26,9 @@ Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip]
 
 
 ### Contoh penggunaan
-`amk-mhs -f 11.12.5369`
+`amk-mhs 11.12.5369` : untuk melihat data mahasiswa
+
+`amk-mhs -h` : untuk melihat halaman help
 
 
 Matur nuwun
