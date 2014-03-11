@@ -5,7 +5,7 @@ Tool command line untuk melihat status mahasiswa. Status mahasiswa yang biasanya
 Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
 ### Instalasi di Linux
-1. Install Ruby (biasanya di Linux, software Ruby sudah ada)
+1. Install Ruby apabila belum ada (namun biasanya di Linux, software Ruby sudah ada)
 
     `sudo apt-get install ruby`
 
@@ -18,8 +18,15 @@ Extract file master.zip, kemudian setting `chmod` nya
 
 `chmod +x amk-mhs`
 
+### Instalasi di Windows
+Download file yang ada di [http://ramdziana.my.id/file/amk-mhs.exe](http://ramdziana.my.id/file/amk-mhs.exe), kemudian jalankan dengan command prompt.
+
+### Instalasi di Mac
+Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
+
+
 ### Contoh penggunaan
-`./amk-mhs -f 11.12.5369`
+`amk-mhs -f 11.12.5369`
 
 
 Matur nuwun
