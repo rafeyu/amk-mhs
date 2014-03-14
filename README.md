@@ -23,7 +23,7 @@ Setelah itu, jalankan perintah:
 `gem install bundler && bundle install`
 
 ### Instalasi di Windows
-Download file yang ada di ~~http://ramdziana.my.id/file/amk-mhs.exe~~ [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe), kemudian jalankan dengan command prompt.
+Download file yang ada di ~~http://ramdziana.my.id/file/amk-mhs.exe~~ **[Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe)**, kemudian jalankan dengan command prompt.
 
 ### Instalasi di Mac
 Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
