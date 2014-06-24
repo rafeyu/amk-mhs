@@ -25,9 +25,11 @@ require "rubygems"
 require "bundler/setup"
 
 require "uri"
+require "open-uri"
 require "net/http"
 require "nokogiri"
 require "optparse"
+require "pathname"
 
 options = {}
 op = OptionParser.new do |opts|
@@ -41,8 +43,8 @@ op = OptionParser.new do |opts|
 		puts opts
 		exit
 	end
-	opts.on("-f","--foto","Tampilkan link foto") do
-		options[:foto] = true
+	opts.on("-f","--foto DIR", "Download foto di DIR") do |f|
+		options[:foto] = f
 	end
 end
 
@@ -62,7 +64,12 @@ begin
 Nama\t:\t#{page.css('div.nama').text}\n
 Jurusan\t:\t#{page.css('div.jurusan').text}\n
 Status\t:\t#{page.css('div.status').text}\n"
-puts "\nFoto\t:\t#{page.at('img.foto')['src']}" if options[:foto]
+	if options[:foto]
+		puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
+		File.open("#{options[:foto]}/#{ARGV}.jpg", 'wb') do |f|
+		  f.write(open(page.at('img.foto')['src']).read)
+		end
+	end
 rescue
 	puts "Maafkan ayah dan bunda, koneksi internet anda putus"
 end
