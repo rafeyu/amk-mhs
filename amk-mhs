@@ -55,6 +55,10 @@ rescue OptionParser::InvalidOption => e
 	exit
 end
 
+def filename(uri)
+	/([^\/]+)(?=\.\w+$)/.match(uri)
+end
+
 uri = 'http://amikom.ac.id/index.php/status/'
 params = {nim: ARGV,cek: 'Cek status &raquo;'}
 begin
@@ -66,7 +70,7 @@ Jurusan\t:\t#{page.css('div.jurusan').text}\n
 Status\t:\t#{page.css('div.status').text}\n"
 	if options[:foto]
 		puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
-		File.open("#{options[:foto]}/#{ARGV}.jpg", 'wb') do |f|
+		File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
 		  f.write(open(page.at('img.foto')['src']).read)
 		end
 	end
