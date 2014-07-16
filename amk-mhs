@@ -70,9 +70,12 @@ Jurusan\t:\t#{page.css('div.jurusan').text}\n
 Status\t:\t#{page.css('div.status').text}\n"
 	if options[:foto]
 		puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
+		puts "\nUnduh foto ke direktori #{options[:foto]} .."
 		File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
 		  f.write(open(page.at('img.foto')['src']).read)
 		end
+	else
+		raise OptionParser::MissingArgument
 	end
 rescue
 	puts "Maafkan ayah dan bunda, koneksi internet anda putus"
