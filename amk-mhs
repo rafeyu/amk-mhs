@@ -29,13 +29,13 @@ require "open-uri"
 require "net/http"
 require "nokogiri"
 require "optparse"
-require "pathname"
 
 options = {}
 op = OptionParser.new do |opts|
-	opts.banner = "Penggunaan: amk-mhs [OPTION] nim"
+	opts.banner = "Penggunaan: amk-mhs [OPTION] nim\n\nOPTION:"
+
 	opts.on("-v","--version","Tampilkan versi") do 
-		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v1.0\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
+		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v1.1\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
 		exit
 	end
 	opts.on("-h","--help","Tampilkan halaman ini") do |h|
@@ -43,7 +43,7 @@ op = OptionParser.new do |opts|
 		puts opts
 		exit
 	end
-	opts.on("-f","--foto DIR", "Download foto di DIR") do |f|
+	opts.on("-f","--foto DIR", "Download foto ke direktori DIR") do |f|
 		options[:foto] = f
 	end
 end
