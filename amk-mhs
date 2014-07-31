@@ -74,8 +74,6 @@ Status\t:\t#{page.css('div.status').text}\n"
 		File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
 		  f.write(open(page.at('img.foto')['src']).read)
 		end
-	else
-		raise OptionParser::MissingArgument
 	end
 rescue
 	puts "Maafkan ayah dan bunda, koneksi internet anda putus"
