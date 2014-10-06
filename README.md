@@ -1,4 +1,4 @@
-## Status mahasiswa Amikom Yogyakarta (amk-mhs) - Unofficial v1.1
+## Status mahasiswa Amikom Yogyakarta (amk-mhs) - Unofficial v1.1.1
 
 Tool command line untuk melihat status mahasiswa. Status mahasiswa yang biasanya hanya bisa dilihat melalui situs [Amikom.ac.id](http://amikom.ac.id), sekarang bisa diakses melalui command line.
 
@@ -26,8 +26,8 @@ Setelah itu, jalankan perintah:
 
 `gem install bundler && bundle install`
 
-### Instalasi di Windows
-Download file yang ada di [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe)**, kemudian jalankan dengan command prompt.
+### Instalasi di Windows (belum di update)
+Download file yang ada di [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe), kemudian jalankan dengan command prompt.
 
 ### Instalasi di Mac
 Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
