@@ -25,12 +25,14 @@ require "net/http"
 require "nokogiri"
 require "optparse"
 
+VERSION = "1.1.1"
+
 options = {}
 op = OptionParser.new do |opts|
 	opts.banner = "Penggunaan: amk-mhs [OPTION] nim\n\nOPTION:"
 
 	opts.on("-v","--version","Tampilkan versi") do 
-		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v1.1\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
+		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v#{VERSION}\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
 		exit
 	end
 	opts.on("-h","--help","Tampilkan halaman ini") do |h|
