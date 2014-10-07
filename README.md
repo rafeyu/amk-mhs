@@ -11,20 +11,21 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     Fedora: `sudo yum install ruby`
 
-    Arch Linux: `pacman -S ruby`
+    Arch Linux: `sudo pacman -S ruby`
 
 2. Download `amk-mhs` dengan `wget`, atau klik tombol **Download ZIP** di kanan halaman ini.
 
     `wget https://github.com/rafeyu/amk-mhs/archive/master.zip`
 
 
-Extract file master.zip, kemudian setting `chmod` nya
+3. Extract file master.zip, kemudian setting `chmod` nya
 
-`chmod +x amk-mhs`
+    `chmod +x amk-mhs`
 
-Setelah itu, jalankan perintah:
 
-`gem install bundler && bundle install`
+4. Setelah itu, jalankan perintah:
+
+    `gem install bundler && bundle install`
 
 ### Instalasi di Windows (belum di update)
 Download file yang ada di [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe), kemudian jalankan dengan command prompt.
@@ -38,6 +39,6 @@ Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip]
 
 `amk-mhs -h` : untuk melihat halaman help
 
-`amk-mhs -f /tmp` : untuk mengunduh foto mahasiswa ke direktori tmp
+`amk-mhs 11.12.5369 -f /tmp` : untuk mengunduh foto mahasiswa ke direktori tmp
 
 Matur nuwun
