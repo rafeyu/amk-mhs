@@ -27,8 +27,10 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     `gem install bundler && bundle install`
 
-### Instalasi di Windows (belum di update)
-Download file yang ada di [Dropbox](https://www.dropbox.com/s/91aame9lw7ul48f/amk-mhs.exe), kemudian jalankan dengan command prompt.
+### Instalasi di Windows
+Download file yang ada di [Sourceforge](http://sourceforge.net/projects/amk-mhs/files/Windows/v1.1.1/amk-mhs-setup.exe/download). Klik next-next aja, yang terpenting adalah *check* pada bagian "Add application directory to your environmental path".
+
+![amk-mhs windows](https://www.dropbox.com/s/430skmvdo1eq6oj/amk-mhs-5.jpg)
 
 ### Instalasi di Mac
 Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
