@@ -30,7 +30,7 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 ### Instalasi di Windows
 Download file yang ada di [Sourceforge](http://sourceforge.net/projects/amk-mhs/files/Windows/v1.1.1/amk-mhs-setup.exe/download). Klik next-next aja, yang terpenting adalah *check* pada bagian "Add application directory to your environmental path".
 
-![amk-mhs windows](https://www.dropbox.com/s/430skmvdo1eq6oj/amk-mhs-5.jpg)
+![amk-mhs windows](https://lh3.googleusercontent.com/-4tnp5tYniYk/VDTttE-e0tI/AAAAAAAADWg/UYza2i360_E/s507/amk-mhs-5.jpg)
 
 ### Instalasi di Mac
 Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
