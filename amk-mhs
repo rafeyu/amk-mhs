@@ -29,54 +29,51 @@ VERSION = "1.1.1"
 
 options = {}
 op = OptionParser.new do |opts|
-	opts.banner = "Penggunaan: amk-mhs [OPTION] nim\n\nOPTION:"
+	  opts.banner = "Penggunaan: amk-mhs [OPTION] nim\n\nOPTION:"
 
-	opts.on("-v","--version","Tampilkan versi") do 
+	  opts.on("-v","--version","Tampilkan versi") do 
 		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v#{VERSION}\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
 		exit
-	end
-	opts.on("-h","--help","Tampilkan halaman ini") do |h|
-		options[:help] = h
-		puts opts
-		exit
-	end
-	opts.on("-f","--foto DIR", "Download foto ke direktori DIR") do |f|
-		options[:foto] = f
-	end
+	  end
+	  opts.on("-h","--help","Tampilkan halaman ini") do |h|
+		  options[:help] = h
+		  puts opts
+		  exit
+	  end
+	  opts.on("-f","--foto DIR", "Download foto ke direktori DIR") do |f|
+	  	options[:foto] = f
+	  end
 end
 
 begin
-	op.parse!(ARGV)
+	  op.parse!(ARGV)
 rescue OptionParser::InvalidOption => e
-	puts op
-	exit
+	  puts op
+	  exit
 end
 
 def filename(uri)
-	/([^\/]+)(?=\.\w+$)/.match(uri)
+	  /([^\/]+)(?=\.\w+$)/.match(uri)
 end
 
 uri = 'http://amikom.ac.id/index.php/status/'
 params = {nim: ARGV,cek: 'Cek status &raquo;'}
 begin
-	res = Net::HTTP.post_form(URI.parse(uri),params)
-	page = Nokogiri::HTML(res.body)
+	  res = Net::HTTP.post_form(URI.parse(uri),params)
+	  page = Nokogiri::HTML(res.body)
     
     comments = page.xpath("//comment()")
     comments[1].replace(comments[1].text)
 
-	puts "NIM\t:\t#{page.css('div.npm').text}\n
-Nama\t:\t#{page.css('div.nama').text}\n
-Jurusan\t:\t#{page.css('div.jurusan').text}\n
-Status\t:\t#{page.css('div.status').text}\n"
+	  puts "NIM\t:\t#{page.css('div.npm').text}\nNama\t:\t#{page.css('div.nama').text}\nJurusan\t:\t#{page.css('div.jurusan').text}\nStatus\t:\t#{page.css('div.status').text}\n"
 
-	if options[:foto]
-		puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
-		puts "\nUnduh foto ke direktori #{options[:foto]} .."
-		File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
-		  f.write(open(page.at('img.foto')['src']).read)
-		end
-	end
+	  if options[:foto]
+	  	puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
+	  	puts "\nUnduh foto ke direktori #{options[:foto]} .."
+	  	File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
+	  	  f.write(open(page.at('img.foto')['src']).read)
+	  	end
+	  end
 rescue
-	puts "Maafkan ayah dan bunda, koneksi internet anda putus"
+	  puts "Maafkan ayah dan bunda, koneksi internet anda putus"
 end
