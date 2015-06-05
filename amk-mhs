@@ -1,79 +1,115 @@
 #!/usr/bin/env ruby
 
 # Status Mahasiswa Amikom Yogyakarta (amk-mhs)
-# Copyright (C) 2014 Ramdziana Feri Yustitianto 
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# Copyright (C) 2014 Ramdziana Feri Yustitianto
 
 require "rubygems"
 require "bundler/setup"
-
-require "uri"
 require "open-uri"
-require "net/http"
 require "nokogiri"
 require "optparse"
+require "timeout"
 
-VERSION = "1.1.1"
+class Amk
+  VERSION = "1.1.1"
 
-options = {}
-op = OptionParser.new do |opts|
-	  opts.banner = "Penggunaan: amk-mhs [OPTION] nim\n\nOPTION:"
+  def initialize(args)
+    @args = args
+    @options = {}
+  end
 
-	  opts.on("-v","--version","Tampilkan versi") do 
-		puts "Status mahasiswa Amikom Yogyakarta - Unofficial v#{VERSION}\n(amk-mhs)\n(c) 2014 - Ramdziana Feri Yustitianto"
-		exit
-	  end
-	  opts.on("-h","--help","Tampilkan halaman ini") do |h|
-		  options[:help] = h
-		  puts opts
-		  exit
-	  end
-	  opts.on("-f","--foto DIR", "Download foto ke direktori DIR") do |f|
-	  	options[:foto] = f
-	  end
-end
+  def run
+    if options?
+      if inet_connect?
+        get_mhs(@options[:foto])
+      else
+        puts "Bad hair day! Your internet connection is lost or too sloooowww ..."
+        exit
+      end
+    else
+      puts "Please refers to '-h' or '--help' to show help"
+    end
+  end
 
-begin
-	  op.parse!(ARGV)
-rescue OptionParser::InvalidOption => e
-	  puts op
-	  exit
-end
+  protected
 
-def filename(uri)
-	  /([^\/]+)(?=\.\w+$)/.match(uri)
-end
+  def inet_connect?
+    begin
+      Timeout::timeout(10) {
+        true if open("http://amikom.ac.id")
+      }
+    rescue
+      false
+    end
+  end
 
-uri = 'http://amikom.ac.id/index.php/status/'
-params = {nim: ARGV,cek: 'Cek status &raquo;'}
-begin
-	  res = Net::HTTP.post_form(URI.parse(uri),params)
-	  page = Nokogiri::HTML(res.body)
-    
+  def options?
+    options = {}
+    op = OptionParser.new do |opts|
+      opts.banner = "Usage: amk-mhs [OPTION] NIM"
+      opts.separator "\nOPTION:"
+
+      opts.on("-v","--version","amk-mhs's version") do
+        get_version
+        exit
+      end
+      opts.on("-h","--help","Help page") do
+        puts opts
+        exit
+      end
+      opts.on("-f","--foto DIR", "Download photo at DIR directory") do |f|
+        @options[:foto] = f
+      end
+    end
+
+    op.parse!(@args) rescue return false
+    true
+  end
+
+  def set_filename(uri)
+    /([^\/]+)(?=\.\w+$)/.match(uri)
+  end
+
+  def get_version
+    puts "Status mahasiswa Amikom Yogyakarta (amk-mhs) v#{VERSION}"
+    puts "Copyright (c) Ramdziana Feri Yustitianto"
+  end
+
+  def get_photo(photo_url,dir_save)
+    puts "Foto\t:\t#{photo_url}"
+    Net::HTTP.start("amikom.ac.id") do |http|
+      res = http.get(photo_url)
+      open("#{dir_save}/#{set_filename(photo_url)}.jpg", "wb") do |file|
+        file.write(res.body)
+      end
+    end
+  end
+
+  def get_mhs(photo_dir)
+    uri = 'http://amikom.ac.id/index.php/status/'
+    params = { nim: @args, cek: 'Cek status &raquo;' }
+
+    res = Net::HTTP.post_form(URI.parse(uri),params)
+    page = Nokogiri::HTML(res.body)
     comments = page.xpath("//comment()")
     comments[1].replace(comments[1].text)
 
-	  puts "NIM\t:\t#{page.css('div.npm').text}\nNama\t:\t#{page.css('div.nama').text}\nJurusan\t:\t#{page.css('div.jurusan').text}\nStatus\t:\t#{page.css('div.status').text}\n"
+    npm = page.css('div.npm').text
+    nama = page.css('div.nama').text
+    jurusan = page.css('div.jurusan').text
+    status = page.css('div.status').text
 
-	  if options[:foto]
-	  	puts "\nFoto\t:\t#{page.at('img.foto')['src']}"
-	  	puts "\nUnduh foto ke direktori #{options[:foto]} .."
-	  	File.open("#{options[:foto]}/#{filename(page.at('img.foto')['src'])}.jpg", 'wb') do |f|
-	  	  f.write(open(page.at('img.foto')['src']).read)
-	  	end
-	  end
-rescue
-	  puts "Maafkan ayah dan bunda, koneksi internet anda putus"
+    puts "NIM\t:\t#{npm}\n\n"
+    puts "Nama\t:\t#{nama}\n\n"
+    puts "Jurusan\t:\t#{jurusan}\n\n"
+    puts "Status\t:\t#{status}\n\n"
+
+    unless photo_dir.nil?
+      photo_url = page.at('img.foto')['src']
+      get_photo(photo_url,photo_dir)
+    end
+  end
 end
+
+amk = Amk.new(ARGV)
+amk.run
