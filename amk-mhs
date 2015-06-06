@@ -44,7 +44,6 @@ class Amk
   end
 
   def options?
-    options = {}
     op = OptionParser.new do |opts|
       opts.banner = "Usage: amk-mhs [OPTION] NIM"
       opts.separator "\nOPTION:"
@@ -57,7 +56,7 @@ class Amk
         puts opts
         exit
       end
-      opts.on("-f","--foto DIR", "Download photo at DIR directory") do |f|
+      opts.on("-f","--foto DIR", "Download photo to DIR directory") do |f|
         @options[:foto] = f
       end
     end
