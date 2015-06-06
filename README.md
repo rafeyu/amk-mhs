@@ -13,21 +13,21 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     Arch Linux: `sudo pacman -S ruby`
 
+    Gentoo: `sudo emerge -av dev-lang/ruby`
+
 2. Download `amk-mhs` dengan `wget`, atau klik tombol **Download ZIP** di kanan halaman ini.
 
     `wget https://github.com/rafeyu/amk-mhs/archive/master.zip`
 
 
-3. Extract file master.zip, kemudian setting `chmod` nya
-
-    `chmod +x amk-mhs`
-
-
-4. Setelah itu, jalankan perintah:
+3. Setelah itu, jalankan perintah:
 
     `gem install bundler && bundle install`
 
-### Instalasi di Windows
+### Instalasi di Windows (old build)
+
+**Perhatian!** File instalasi Windows belum di rebuild, masih berkas lawas, sebelum [commit ini](https://github.com/rafeyu/amk-mhs/commit/a6fc81d9cd6440f077dc554eee3d46be3c2f9f0).
+
 Download file yang ada di [Sourceforge](http://sourceforge.net/projects/amk-mhs/files/Windows/v1.1.1/amk-mhs-setup.exe/download). Klik next-next aja, yang terpenting adalah *check* pada bagian "Add application directory to your environmental path".
 
 ![amk-mhs windows](https://lh3.googleusercontent.com/-4tnp5tYniYk/VDTttE-e0tI/AAAAAAAADWg/UYza2i360_E/s507/amk-mhs-5.jpg)
