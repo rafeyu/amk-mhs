@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Status Mahasiswa Amikom Yogyakarta (amk-mhs)
-# Copyright (C) 2014 Ramdziana Feri Yustitianto
+# Copyright (C) 2014, 2015 Ramdziana Feri Yustitianto
 
 require "rubygems"
 require "bundler/setup"
@@ -71,7 +71,7 @@ class Amk
 
   def get_version
     puts "Status mahasiswa Amikom Yogyakarta (amk-mhs) v#{VERSION}"
-    puts "Copyright (c) Ramdziana Feri Yustitianto"
+    puts "Copyright (c) 2014, 2015 Ramdziana Feri Yustitianto"
   end
 
   def get_photo(photo_url,dir_save)
