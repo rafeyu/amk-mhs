@@ -9,7 +9,7 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     Debian dan turunannya: `sudo apt-get install ruby`
 
-    Fedora: `sudo yum install ruby`
+    Fedora: `sudo dnf install ruby`
 
     Arch Linux: `sudo pacman -S ruby`
 
@@ -24,11 +24,9 @@ Tool ini unofficial, pengembangnya adalah seorang mahasiswa Amikom Yogyakarta.
 
     `gem install bundler && bundle install`
 
-### Instalasi di Windows (old build)
+### Instalasi di Windows
 
-**Perhatian!** File instalasi Windows belum di rebuild, masih berkas lawas, sebelum [commit ini](https://github.com/rafeyu/amk-mhs/commit/a6fc81d9cd6440f077dc554eee3d46be3c2f9f0).
-
-Download file yang ada di [Sourceforge](http://sourceforge.net/projects/amk-mhs/files/Windows/v1.1.1/amk-mhs-setup.exe/download). Klik next-next aja, yang terpenting adalah *check* pada bagian "Add application directory to your environmental path".
+Download file yang ada di [laman release](https://github.com/rafeyu/amk-mhs/releases/tag/v1.1.1). Klik next-next aja, yang terpenting adalah *check* pada bagian "Add application directory to your environmental path".
 
 ![amk-mhs windows](https://lh3.googleusercontent.com/-4tnp5tYniYk/VDTttE-e0tI/AAAAAAAADWg/UYza2i360_E/s507/amk-mhs-5.jpg)
 
