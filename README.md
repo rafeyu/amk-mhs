@@ -35,10 +35,10 @@ Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip]
 
 
 ### Contoh penggunaan
-`amk-mhs 11.12.5369` : untuk melihat data mahasiswa
+`amk-mhs 11.11.1111` : untuk melihat data mahasiswa
 
 `amk-mhs -h` : untuk melihat halaman help
 
-`amk-mhs 11.12.5369 -f /tmp` : untuk mengunduh foto mahasiswa ke direktori tmp
+`amk-mhs 11.11.1111 -f /tmp` : untuk mengunduh foto mahasiswa ke direktori tmp
 
 Matur nuwun
