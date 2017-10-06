@@ -30,6 +30,10 @@ Download file yang ada di [laman release](https://github.com/rafeyu/amk-mhs/rele
 
 ![amk-mhs windows](https://lh3.googleusercontent.com/-4tnp5tYniYk/VDTttE-e0tI/AAAAAAAADWg/UYza2i360_E/s507/amk-mhs-5.jpg)
 
+#### Status pengembangan di Windows
+
+Saya tak punya lagi mesin Windows untuk menguji `amk-mhs`. Bagi yang ingin mengerjakan dukungan tools ini pada Windows, saya biasa menggunakan [ocra](https://rubygems.org/gems/ocra) untuk mem-build berkas .rb menjadi .exe yang kemudian saya bundel ke dalam installer menggunakan [Inno Setup](http://www.jrsoftware.org/isinfo.php). Skrip untuk membundel dapat dilihat di dir `Inno scrupt build/install.iss`, modpath.iss dipakai untuk menambah kotak dialog *add environmental path*.
+
 ### Instalasi di Mac
 Download file yang ada di [https://github.com/rafeyu/amk-mhs/archive/master.zip](https://github.com/rafeyu/amk-mhs/archive/master.zip), kemudian jalankan layaknya di Linux.
 
